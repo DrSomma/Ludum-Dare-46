@@ -223,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268426510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 10.13, z: -2.296546}
+  m_LocalPosition: {x: -0.05, y: 5.07, z: -2.296546}
   m_LocalScale: {x: 30.40747, y: -0.926902, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -331,7 +331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368559921}
   m_LocalRotation: {x: -0, y: -0, z: 0.70710576, w: 0.7071079}
-  m_LocalPosition: {x: -15.12, y: 0.322, z: -2.296546}
+  m_LocalPosition: {x: -10.53, y: 0.322, z: -2.296546}
   m_LocalScale: {x: 20.731686, y: -0.92690283, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -373,7 +373,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.19894867, g: 0, b: 0.2830189, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -390,7 +390,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -522,7 +522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228230844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -9.71, z: -2.296546}
+  m_LocalPosition: {x: -0.05, y: -5.35, z: -2.296546}
   m_LocalScale: {x: 30.40747, y: -0.926902, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -630,7 +630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370753980}
   m_LocalRotation: {x: -0, y: -0, z: 0.70710576, w: 0.7071079}
-  m_LocalPosition: {x: 14.92, y: 0.322, z: -2.296546}
+  m_LocalPosition: {x: 10.49, y: 0.322, z: -2.296546}
   m_LocalScale: {x: 20.731686, y: -0.92690283, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -666,8 +666,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   human: {fileID: 4553530690125696628, guid: 3547079cf491c95448e46ac2183687b1, type: 3}
-  maxRange: 8
-  count: 100
+  maxRange: 4.37
+  startInfected: 0.1
+  count: 30
 --- !u!4 &1666365170
 Transform:
   m_ObjectHideFlags: 0
@@ -691,6 +692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1958185834}
+  - component: {fileID: 1958185835}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -712,3 +714,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1958185835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958185833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964333fd10883994ea7c1fc90fd18389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infectedHumans: []
+  allHumans: []

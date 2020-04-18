@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - WorldBorder
+  - Infected
   layers:
   - Default
   - TransparentFX
