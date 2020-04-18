@@ -10,7 +10,8 @@ public class HumanProperties : MonoBehaviour
     public int age;
     public float percentSpread = 0.30f;
 
-    public void Infect(){
+    public void Infect()
+    {
         status = HealthStatusEnum.infected;
         InfectionManager.Instance.AddNewInfected(this);
         gameObject.tag = "Infected";
@@ -20,14 +21,22 @@ public class HumanProperties : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.green;
     }
 
-    public void RollIfVirusSpread(){
-        if(status == HealthStatusEnum.infected)
-            return;
+    public bool RollIfVirusSpread()
+    {
+        if (status == HealthStatusEnum.infected)
+        {
+            return true;
+        }
 
-        if(Random.Range(0f,1f)<=percentSpread){
+        if (Random.Range(0f, 1f) <= percentSpread)
+        {
             Infect();
-        }else{
+            return true;
+        }
+        else
+        {
             Debug.Log("LUCKY!!!");
+            return false;
         }
     }
 }
