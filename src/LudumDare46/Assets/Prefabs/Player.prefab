@@ -102,6 +102,9 @@ MonoBehaviour:
   range: 0.5
   percentSpread: 0.2
   infectionCycle: 2
+  coughCycle: 7
+  percentCough: 0.2
+  cloud: {fileID: 5215284320808061867, guid: d9c912847a560964e933a1df14fe5bca, type: 3}
 --- !u!114 &4553530690125696630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +120,6 @@ MonoBehaviour:
   status: 0
   sex: 0
   age: 0
-  myVirus: {fileID: 0}
 --- !u!114 &4553530690125696631
 MonoBehaviour:
   m_ObjectHideFlags: 0
