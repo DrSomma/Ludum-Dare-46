@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GeschlechtEnum
+public enum HealthStatusEnum
 {
-    Maennlich,
-    Weiblich
+    healthy,
+    hadContact,
+    infected
 }
