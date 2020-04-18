@@ -16,7 +16,6 @@ public class InfectionManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 
     public float losingPercent = 0.5f;
@@ -25,7 +24,7 @@ public class InfectionManager : MonoBehaviour
     public List<HumanProperties> allHumans;
     public bool isGameOver = false;
 
-    private int losingCnt = 0;
+    private int losingCnt = 999999;
 
     private void Start() {
         infectedHumans = new List<HumanProperties>();
@@ -54,7 +53,7 @@ public class InfectionManager : MonoBehaviour
     public void CheckLost(){
         if(getInfectedCount() >= losingCnt){
             isGameOver = true;
-            Debug.Log("GAME OVER!");
+            Debug.Log("GAME OVER! " + getInfectedCount() + " " + losingCnt);
         }
     }
 
