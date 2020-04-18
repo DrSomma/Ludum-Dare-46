@@ -64,8 +64,14 @@ public class HumanMovment : MonoBehaviour
             return;
         
         Vector2 dragEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //do nothing if distance is to smale
+        if (Vector2.Distance(dragEnd, dragStart) <= 0.001f)
+            return;
+
         dir = (dragEnd - dragStart);
-        dir = dir.normalized;   
+        dir = dir.normalized;
+        Debug.Log(dir);
         StartCoroutine("LockFreeWill");
    }
 
