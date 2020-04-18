@@ -33,11 +33,9 @@ public class HumanMovment : MonoBehaviour
         if (other.gameObject.CompareTag("WorldBorder"))
         {
             dir = -dir;
-        }else if(other.gameObject.CompareTag("Infected")){
-            myProbs.RollIfVirusSpread();
         }
     }
-
+    
     //TODO: bessere Erkennung! Es sollte reichen wenn man in die Nähe klickt
    private void OnMouseDown() {
        if(myProbs.status == HealthStatusEnum.infected)

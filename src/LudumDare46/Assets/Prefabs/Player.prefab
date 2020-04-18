@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4553530690125696624}
   - component: {fileID: 4553530690125696625}
+  - component: {fileID: 8840687992732682159}
   - component: {fileID: 4553530690125696630}
   - component: {fileID: 4553530690125696631}
   - component: {fileID: 4553530690125696626}
@@ -85,6 +86,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8840687992732682159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553530690125696628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5098de49cdfc649aab5a0fe2dda174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActiv: 0
+  range: 0.5
+  percentSpread: 0.2
+  infectionCycle: 2
 --- !u!114 &4553530690125696630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +117,7 @@ MonoBehaviour:
   status: 0
   sex: 0
   age: 0
-  percentSpread: 0.2
+  myVirus: {fileID: 0}
 --- !u!114 &4553530690125696631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0932c11843e96984fbd7eb6bda104a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.5
 --- !u!50 &4553530690125696626
 Rigidbody2D:
   serializedVersion: 4

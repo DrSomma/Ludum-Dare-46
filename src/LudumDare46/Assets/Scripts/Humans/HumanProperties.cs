@@ -8,26 +8,35 @@ public class HumanProperties : MonoBehaviour
     public HealthStatusEnum status;
     public SexEnum sex;
     public int age;
-    public float percentSpread = 0.30f;
+
+    private GameObject source;
+    private Virus myVirus;
+
+    private void Awake() {
+        myVirus = GetComponent<Virus>();
+    }
+
+    private void Start() {
+        if(status == HealthStatusEnum.healthy){
+            gameObject.tag = "Human";
+            myVirus.setVirusActive(false);
+        }else if(status == HealthStatusEnum.infected){
+            Infect();
+        }        
+    }
 
     public void Infect(){
         status = HealthStatusEnum.infected;
         InfectionManager.Instance.AddNewInfected(this);
         gameObject.tag = "Infected";
-
+        myVirus.setVirusActive(true);
 
         //WIP
         GetComponent<SpriteRenderer>().color = Color.green;
     }
 
-    public void RollIfVirusSpread(){
-        if(status == HealthStatusEnum.infected)
-            return;
-
-        if(Random.Range(0f,1f)<=percentSpread){
-            Infect();
-        }else{
-            Debug.Log("LUCKY!!!");
-        }
+    public void hadContact(GameObject s){
+        source = s;
+        Infect();
     }
 }

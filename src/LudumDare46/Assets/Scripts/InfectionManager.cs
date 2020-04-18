@@ -66,5 +66,9 @@ public class InfectionManager : MonoBehaviour
         return losingCnt;
     }
 
+    public List<HumanProperties> getAllHumans(){
+        return allHumans;
+    }
+
 
 }
