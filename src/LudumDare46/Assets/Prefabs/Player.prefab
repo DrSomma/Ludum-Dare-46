@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 4553530690125696624}
   - component: {fileID: 4553530690125696625}
   - component: {fileID: 4553530690125696630}
-  - component: {fileID: 5673644406090273316}
   - component: {fileID: 4553530690125696626}
   - component: {fileID: 4553530690125696627}
   - component: {fileID: 3145853098737053009}
+  - component: {fileID: 4553530690125696631}
+  - component: {fileID: 7599638684406032717}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -102,21 +103,6 @@ MonoBehaviour:
   status: 0
   sex: 0
   age: 0
-  percentSpread: 1
---- !u!114 &5673644406090273316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4553530690125696628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0932c11843e96984fbd7eb6bda104a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  Highlighter: {fileID: 6736490332718791582}
 --- !u!50 &4553530690125696626
 Rigidbody2D:
   serializedVersion: 4
@@ -180,6 +166,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.77, y: 2.35}
   m_EdgeRadius: 0
+--- !u!114 &4553530690125696631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553530690125696628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0932c11843e96984fbd7eb6bda104a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSpeed: 0.5
+  attractSpeed: 2
+  lockFreeWillTime: 2
+  Highlighter: {fileID: 6736490332718791582}
+--- !u!114 &7599638684406032717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553530690125696628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5098de49cdfc649aab5a0fe2dda174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActiv: 0
+  range: 2
+  percentSpread: 0.3
+  infectionCycle: 2
+  coughCycle: 2
+  percentCough: 0.3
+  cloud: {fileID: 5215284320808061867, guid: d9c912847a560964e933a1df14fe5bca, type: 3}
 --- !u!1 &6736490332718791582
 GameObject:
   m_ObjectHideFlags: 0

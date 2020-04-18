@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WorldBorder
   - Infected
+  - Human
   layers:
   - Default
   - TransparentFX

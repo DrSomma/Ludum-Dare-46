@@ -26,11 +26,10 @@ public class Spawn : MonoBehaviour
         }
 
         //failsave - need min 1 infected
-        if(InfectionManager.Instance.infectedHumans.Count == 0){
+        InfectionManager.Instance.setAllHumans(allHumans);
+        if (InfectionManager.Instance.infectedHumans.Count == 0){
             allHumans[0].Infect();      //infect first in list
         }
-
-        InfectionManager.Instance.allHumans = allHumans;
     }
 
     void SetRndProbs(HumanProperties probs){
