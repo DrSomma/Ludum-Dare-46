@@ -47,6 +47,9 @@ public class HumanMovment : MonoBehaviour
    }
 
    private void OnMouseUp() {
+        if(myProbs.status == HealthStatusEnum.infected)
+            return;
+        
         Vector2 dragEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dir = (dragEnd - dragStart);
         dir = dir.normalized * speed;        
