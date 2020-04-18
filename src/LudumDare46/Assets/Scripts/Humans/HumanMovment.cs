@@ -5,14 +5,22 @@ using UnityEngine;
 public class HumanMovment : MonoBehaviour
 {
     [Header("config")]
-    public float speed = 1.0f;
+    public float normalSpeed = 0.5f;
+    public float attractSpeed = 2f;
+    public float lockFreeWillTime = 2f;
+    
 
     private Vector2 dir;
     private Vector2 dragStart;
     private HumanProperties myProbs;
+    private Transform attractTarget;
+    private bool hasFreeWill = true;
+    private float speed;
 
     void Start()
     {
+        speed = normalSpeed;
+
         //Calc init move dir
         calcDir(Random.Range(0,360));
 
@@ -21,11 +29,18 @@ public class HumanMovment : MonoBehaviour
 
     private void calcDir(float angle){
         dir = (Vector2)(Quaternion.Euler(0,0,angle) * Vector2.up);
-        dir = dir * speed;
     }
 
     void Update() {
-        transform.Translate(dir * Time.deltaTime);
+        if(hasFreeWill && attractTarget != null){
+            transform.position = Vector2.MoveTowards(transform.position,attractTarget.position,Time.deltaTime*attractSpeed);
+        }else{
+            transform.Translate(dir * speed * Time.deltaTime);    
+        }
+    }
+
+    public void setTarget(Transform target){
+        attractTarget = target;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -50,7 +65,14 @@ public class HumanMovment : MonoBehaviour
         
         Vector2 dragEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dir = (dragEnd - dragStart);
-        dir = dir.normalized * speed;        
+        dir = dir.normalized;   
+        StartCoroutine("LockFreeWill");
+   }
+
+   IEnumerable LockFreeWill(){
+       hasFreeWill = false;
+       yield return new WaitForSeconds(lockFreeWillTime);
+       hasFreeWill = true;
    }
 
 }
