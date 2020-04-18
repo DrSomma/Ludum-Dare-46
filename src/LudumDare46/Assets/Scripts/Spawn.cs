@@ -30,7 +30,7 @@ public class Spawn : MonoBehaviour
             allHumans[0].Infect();      //infect first in list
         }
 
-        InfectionManager.Instance.allHumans = allHumans;
+        InfectionManager.Instance.setAllHumans(allHumans);
     }
 
     void SetRndProbs(HumanProperties probs){
