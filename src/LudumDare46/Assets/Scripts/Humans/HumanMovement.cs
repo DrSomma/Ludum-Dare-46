@@ -9,6 +9,7 @@ public class HumanMovement : MonoBehaviour
     public float attractSpeed = 2f;
     public float lockFreeWillTime = 2f;
     public GameObject Highlighter;
+    public GameObject DirectionArrow;
 
     private Vector2 dir;
     private Vector2 dragStart;
@@ -31,6 +32,7 @@ public class HumanMovement : MonoBehaviour
         myProbs = GetComponent<HumanProperties>();
 
         Highlighter.SetActive(false);
+        DirectionArrow.SetActive(false);
     }
 
     private void calcDir(float angle)
@@ -48,6 +50,26 @@ public class HumanMovement : MonoBehaviour
         {
             transform.Translate(dir * speed * Time.deltaTime);
         }
+
+        if(inMovement)
+        {
+            Vector2 dragEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            //Vector2 targetDir = dragEnd - dragStart;
+            //float angle = Vector2.Angle(dragEnd, dragStart);
+            //Debug.Log(angle);
+            //angle = angle.normalized;// * speed;
+
+            Transform directionArrowTransform = DirectionArrow.GetComponent<Transform>();
+            directionArrowTransform.rotation = Quaternion.Euler(0,0,AngleBetweenVector2(dragEnd, dragStart));
+        }
+    }
+
+    private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)
+    {
+        Vector2 difference = vec2 - vec1;
+        float sign = (vec2.y < vec1.y) ? -1.0f : 1.0f;
+        return Vector2.Angle(Vector2.right, difference) * sign;
     }
 
     public void setTarget(Transform target)
@@ -77,6 +99,7 @@ public class HumanMovement : MonoBehaviour
         if (currentlySelected && myProbs.status != HealthStatusEnum.infected)
         {
             inMovement = true;
+            DirectionArrow.SetActive(true);
             dragStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
@@ -117,6 +140,7 @@ public class HumanMovement : MonoBehaviour
                 dir = dir.normalized;// * speed;
 
                 inMovement = false;
+                DirectionArrow.SetActive(false);
                 OnMouseExit();
 
                 StartCoroutine("LockFreeWill");
@@ -127,6 +151,7 @@ public class HumanMovement : MonoBehaviour
             inMovement = false;
             MovementManager.Instance.DeselectCharacter();
             Highlighter.SetActive(false);
+            DirectionArrow.SetActive(false);
         }
     }
 
