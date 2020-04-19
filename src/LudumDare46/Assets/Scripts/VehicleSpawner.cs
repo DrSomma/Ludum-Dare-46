@@ -7,10 +7,13 @@ public class VehicleSpawner : MonoBehaviour
     public float rangeX = 20f;
     public float rangeY = 4f;
     public List<GameObject> vehicls;
+
+    public float spawnEvery = 40f;   //Seconds
+    public float startDelay = 10f;   //Seconds
          
     void Start()
     {
-        SpawnVehicle();
+        InvokeRepeating("SpawnVehicle",startDelay,spawnEvery);
     }
 
     public void SpawnVehicle()
