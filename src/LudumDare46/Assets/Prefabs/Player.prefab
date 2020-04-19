@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 4553530690125696628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.178, y: -0.76, z: 0}
-  m_LocalScale: {x: 0.3793565, y: 0.3793565, z: 0.3793565}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 5248769789221330943}
   - {fileID: 85265769869854600}
@@ -279,10 +279,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActiv: 0
-  range: 2
+  range: 0.5
   percentSpread: 0.3
   infectionCycle: 2
-  coughCycle: 2
+  coughCycle: 10
   percentCough: 0.3
   cloud: {fileID: 5215284320808061867, guid: d9c912847a560964e933a1df14fe5bca, type: 3}
 --- !u!1 &6736490332718791582

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    public GameObject human;
-    public float maxRange;
+    public List<GameObject> humans;
     public float startInfected = 0.03f;
     public int count = 100;
+    public List<SpawnPoint> spawnPoints;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +16,10 @@ public class Spawn : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            Vector2 pos = new Vector2(Random.Range(-maxRange,maxRange)+transform.position.x,Random.Range(-maxRange,maxRange)+transform.position.y);
+            GameObject preFab = humans[RandomInt(0, humans.Count)];
+            SpawnPoint point = spawnPoints[RandomInt(0, spawnPoints.Count)];
+            HumanProperties probs = point.SpawnObject(preFab);
 
-            GameObject h = GameObject.Instantiate(human);
-            h.transform.position = pos;
-            HumanProperties probs = h.GetComponent<HumanProperties>();
             SetRndProbs(probs);
             allHumans.Add(probs);
         }
@@ -42,12 +41,6 @@ public class Spawn : MonoBehaviour
         }else{
             probs.status = HealthStatusEnum.healthy;
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = new Color(1f, 0, 0.0f);
-        Gizmos.DrawWireSphere(transform.position,maxRange);
     }
 
     private int RandomInt(int start, int end){
