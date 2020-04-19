@@ -116,4 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  drop: {fileID: 1991990443881422691, guid: 674d19ebd3db01c4694da182eac2c167, type: 3}
+  drop: {fileID: 3477025879385477500, guid: 674d19ebd3db01c4694da182eac2c167, type: 3}
+  dropSpeed: 1
+  dropTravelDis: 5
