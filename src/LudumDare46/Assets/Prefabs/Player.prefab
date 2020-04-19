@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalSpeed: 0.5
-  attractSpeed: 2
+  attractSpeed: 1
   lockFreeWillTime: 2
   Highlighter: {fileID: 6736490332718791582}
   DirectionArrow: {fileID: 247555569555507290}

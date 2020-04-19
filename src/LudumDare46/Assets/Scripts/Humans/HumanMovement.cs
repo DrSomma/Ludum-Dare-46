@@ -90,7 +90,6 @@ public class HumanMovement : MonoBehaviour
     //TODO: bessere Erkennung! Es sollte reichen wenn man in die Nähe klickt
     private void OnMouseDown()
     {
-        Debug.Log("TEst");
         if (currentlySelected && myProbs.status != HealthStatusEnum.infected)
         {
             inMovement = true;
