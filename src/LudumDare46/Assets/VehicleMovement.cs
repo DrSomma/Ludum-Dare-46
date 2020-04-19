@@ -43,10 +43,15 @@ public class VehicleMovement : MonoBehaviour
 
     void DropObject()
     {
+        Debug.Log("DROP!!!");
+
         hasDropt = true;
         GameObject obj = Instantiate(drop);
         obj.transform.position = transform.position;
-        Debug.Log("DROP!!!");
+
+        //WIP TODO: ITEM etc quick fix
+        HumanMagnet magnet = obj.GetComponent<HumanMagnet>();
+        magnet.enabled = false;
     }
 
     void OnDrawGizmosSelected()
