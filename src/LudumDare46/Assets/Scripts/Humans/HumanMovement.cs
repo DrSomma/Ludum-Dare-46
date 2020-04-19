@@ -15,6 +15,7 @@ public class HumanMovement : MonoBehaviour
     private Vector2 dragStart;
     private HumanProperties myProbs;
 
+    public static HumanProperties SelectedCharacter;
     public bool currentlySelected; // Bin ich selektiert?
     private bool inMovement; // Bin ich gerade in einer Bewegeung? - Maus wurde geklickt
 
@@ -84,18 +85,12 @@ public class HumanMovement : MonoBehaviour
         {
             dir = -dir;
         }
-        //else if (other.gameObject.CompareTag("Infected"))
-        //{
-        //    if (myProbs.RollIfVirusSpread() && currentlySelected)
-        //    {
-        //        OnMouseUp();
-        //    }
-        //}
     }
 
     //TODO: bessere Erkennung! Es sollte reichen wenn man in die Nähe klickt
     private void OnMouseDown()
     {
+        Debug.Log("TEst");
         if (currentlySelected && myProbs.status != HealthStatusEnum.infected)
         {
             inMovement = true;
@@ -111,7 +106,7 @@ public class HumanMovement : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (myProbs.status != HealthStatusEnum.infected && MovementManager.Instance.TrySelectNewCharacter(myProbs))
+        if (myProbs.status != HealthStatusEnum.infected && TrySelectNewCharacter(myProbs))
         {
             Highlighter.SetActive(true);
             currentlySelected = true;
@@ -122,7 +117,7 @@ public class HumanMovement : MonoBehaviour
     {
         if (currentlySelected && !inMovement)
         {
-            MovementManager.Instance.DeselectCharacter();
+            DeselectCharacter();
             Highlighter.SetActive(false);
         }
     }
@@ -149,7 +144,7 @@ public class HumanMovement : MonoBehaviour
         else if (currentlySelected && myProbs.status == HealthStatusEnum.infected)
         {
             inMovement = false;
-            MovementManager.Instance.DeselectCharacter();
+            DeselectCharacter();
             Highlighter.SetActive(false);
             DirectionArrow.SetActive(false);
         }
@@ -168,5 +163,23 @@ public class HumanMovement : MonoBehaviour
         hasFreeWill = false;
         yield return new WaitForSeconds(lockFreeWillTime);
         hasFreeWill = true;
+    }
+
+    public static bool TrySelectNewCharacter(HumanProperties vHumanProperties)
+    {
+        if (SelectedCharacter == null)
+        {
+            SelectedCharacter = vHumanProperties;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void DeselectCharacter()
+    {
+        SelectedCharacter = null;
     }
 }
