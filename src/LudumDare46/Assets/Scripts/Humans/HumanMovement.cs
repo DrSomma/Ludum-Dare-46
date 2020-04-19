@@ -8,6 +8,9 @@ public class HumanMovement : MonoBehaviour
     public float normalSpeed = 0.5f;
     public float attractSpeed = 2f;
     public float lockFreeWillTime = 2f;
+    public float RandomDirectionCycleTime = 0.5f;
+    [Range(0.0f, 100.0f)]
+    public float RandomDirectionCyclePercentage = 5f;
     public GameObject Highlighter;
     public GameObject DirectionArrow;
 
@@ -34,6 +37,8 @@ public class HumanMovement : MonoBehaviour
 
         Highlighter.SetActive(false);
         DirectionArrow.SetActive(false);
+
+        InvokeRepeating("NewRandomDirection", 2.0f, RandomDirectionCycleTime);
     }
 
     private void calcDir(float angle)
@@ -52,7 +57,7 @@ public class HumanMovement : MonoBehaviour
             transform.Translate(dir * speed * Time.deltaTime);
         }
 
-        if(inMovement)
+        if (inMovement)
         {
             Vector2 dragEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -62,7 +67,7 @@ public class HumanMovement : MonoBehaviour
             //angle = angle.normalized;// * speed;
 
             Transform directionArrowTransform = DirectionArrow.GetComponent<Transform>();
-            directionArrowTransform.rotation = Quaternion.Euler(0,0,AngleBetweenVector2(dragEnd, dragStart));
+            directionArrowTransform.rotation = Quaternion.Euler(0, 0, AngleBetweenVector2(dragEnd, dragStart));
         }
     }
 
@@ -162,6 +167,14 @@ public class HumanMovement : MonoBehaviour
         hasFreeWill = false;
         yield return new WaitForSeconds(lockFreeWillTime);
         hasFreeWill = true;
+    }
+
+    private void NewRandomDirection()
+    {
+        if (Random.value <= RandomDirectionCyclePercentage / 100)
+        {
+            calcDir(Random.Range(0, 360));
+        }
     }
 
     public static bool TrySelectNewCharacter(HumanProperties vHumanProperties)
