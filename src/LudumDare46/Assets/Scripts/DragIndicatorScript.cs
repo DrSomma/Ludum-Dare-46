@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class DragIndicatorScript : MonoBehaviour
 {
-
-    Vector3 startPos;
     Vector3 endPos;
-    Camera camera2;
+    Camera cam;
     LineRenderer lr;
 
     Vector3 camOffset = new Vector3(0, 0, 10);
 
-    [SerializeField] AnimationCurve ac;
+    private Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
-        camera2 = Camera.main;
+        cam = Camera.main;
         lr = GetComponent<LineRenderer>();
     }
 
@@ -26,25 +24,30 @@ public class DragIndicatorScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (lr == null)
+            RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if(hit.collider != null)
             {
-                lr = gameObject.AddComponent<LineRenderer>();
+                if(hit.collider.gameObject.tag == "Human")
+                {
+                    lr.enabled = true;
+                    lr.positionCount = 2;
+                    target = hit.collider.transform;
+                }
             }
-            lr.enabled = true;
-            lr.positionCount = 2;
-            startPos = camera2.ScreenToWorldPoint(Input.mousePosition) + camOffset;
-            lr.SetPosition(0, startPos);
-            lr.useWorldSpace = true;
-            //lr.numCapVertices = 10;
         }
         if (Input.GetMouseButton(0))
         {
-            endPos = camera2.ScreenToWorldPoint(Input.mousePosition) + camOffset;
+            endPos = cam.ScreenToWorldPoint(Input.mousePosition) + camOffset;
             lr.SetPosition(1, endPos);
         }
         if (Input.GetMouseButtonUp(0))
         {
             lr.enabled = false;
+        }
+
+        if(target != null)
+        {
+            lr.SetPosition(0, target.position);
         }
     }
 }
