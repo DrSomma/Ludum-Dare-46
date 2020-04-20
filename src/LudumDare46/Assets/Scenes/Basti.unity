@@ -16504,6 +16504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humans:
   - {fileID: 4553530690125696628, guid: 3547079cf491c95448e46ac2183687b1, type: 3}
+  - {fileID: 5971346639780146029, guid: 5b727dac419ebbf46a98fe393c6f94d3, type: 3}
   startInfected: 0
   count: 30
   spawnPoints:
