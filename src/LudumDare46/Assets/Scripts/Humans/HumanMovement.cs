@@ -52,6 +52,14 @@ public class HumanMovement : MonoBehaviour
         if (hasFreeWill && attractTarget != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, attractTarget.position, Time.deltaTime * attractSpeed);
+            if(Vector2.Distance(transform.position, attractTarget.position) <= 0.2f)
+            {
+                if(attractTarget.gameObject.tag == "Collectible")
+                {
+                    Collectible col = attractTarget.gameObject.GetComponent<Collectible>();
+                    col.doPickUp();
+                }
+            }
         }
         else
         {
