@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActiv: 1
   range: 0.32
-  percentSpread: 0.5
+  percentSpread: 0.8
   infectionCycle: 2
   coughCycle: 0
   percentCough: 0

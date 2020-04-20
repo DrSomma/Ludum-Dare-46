@@ -184,6 +184,7 @@ MonoBehaviour:
   status: 0
   sex: 0
   age: 0
+  source: {fileID: 0}
 --- !u!114 &4553530690125696631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +200,8 @@ MonoBehaviour:
   normalSpeed: 0.5
   attractSpeed: 1
   lockFreeWillTime: 2
+  RandomDirectionCycleTime: 1
+  RandomDirectionCyclePercentage: 10
   Highlighter: {fileID: 6736490332718791582}
   DirectionArrow: {fileID: 247555569555507290}
   currentlySelected: 0

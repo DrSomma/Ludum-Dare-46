@@ -9,7 +9,7 @@ public class HumanProperties : MonoBehaviour
     public SexEnum sex;
     public int age;
 
-    private GameObject source;
+    public GameObject source;
     private Virus myVirus;
 
     private void Awake()
