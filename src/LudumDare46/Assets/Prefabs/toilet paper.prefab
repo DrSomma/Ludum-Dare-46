@@ -112,7 +112,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3477025879385477502}
   - component: {fileID: 3477025879385477501}
-  - component: {fileID: 4787950834845659570}
   - component: {fileID: 6214768447793548717}
   m_Layer: 0
   m_Name: toilet paper
@@ -152,19 +151,6 @@ MonoBehaviour:
   interactInfected: 1
   attractCycle: 2
   range: 2
---- !u!114 &4787950834845659570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3477025879385477500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b7e3a5af4645e4096e50b7d6c10101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: {fileID: 6214768447793548717}
 --- !u!114 &6214768447793548717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,3 +163,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30f39cf30df61a458200a409f4a6f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetY: 0.4

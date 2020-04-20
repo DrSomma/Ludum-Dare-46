@@ -198,6 +198,8 @@ public class HumanMovement : MonoBehaviour
 
     private void NewRandomDirection()
     {
+        if (!hasFreeWill)
+            return;
         if (Random.value <= RandomDirectionCyclePercentage / 100)
         {
             calcDir(Random.Range(0, 360));
