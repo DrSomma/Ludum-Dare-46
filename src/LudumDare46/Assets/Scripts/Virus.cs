@@ -34,6 +34,8 @@ public class Virus : MonoBehaviour
         if(Random.Range(0f,1f)<=percentCough){
             GameObject obj = Instantiate(cloud);
             obj.transform.position = transform.position;
+
+            SoundManager.instance.playCoughSound();
         }
     }
 
