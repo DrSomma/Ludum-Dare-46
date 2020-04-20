@@ -63,8 +63,6 @@ public class InfectionManager : MonoBehaviour
             isGameOver = true;
             Debug.Log("GAME OVER! " + getInfectedCount() + " " + losingCnt);
 
-            Time.timeScale = 0f;
-
             foreach (HumanProperties human in allHumans)
             {
                 Vector2 pos = human.transform.position;
@@ -80,6 +78,8 @@ public class InfectionManager : MonoBehaviour
                 GameObject grave = Instantiate(gravePrefab);
                 gravePrefab.transform.position = pos;
             }
+
+            Time.timeScale = 0f;
 
             //Show GUI
             gameOverMenu.ShowMenu();
