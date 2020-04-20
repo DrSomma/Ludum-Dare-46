@@ -13,7 +13,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip yippieSound;
 
     [Header("For Background Music")]
-    public bool SoundEnabled;
+    public bool MuteMusic;
+    public bool MuteSounds;
     public AudioSource musicSource;
     public AudioClip musicStart;
 
@@ -32,7 +33,7 @@ public class SoundManager : MonoBehaviour
         musicSource.clip = musicStart;
         musicSource.loop = true;
 
-        if (SoundEnabled)
+        if (!MuteMusic)
         {
             musicSource.Play();
         }
@@ -43,14 +44,23 @@ public class SoundManager : MonoBehaviour
 
     void Update()
     {
-        if (SoundEnabled && !musicSource.isPlaying)
+        if (MuteMusic)
         {
-            musicSource.Play();
+            musicSource.mute = true;
         }
-        else if (!SoundEnabled)
+        else
         {
-            musicSource.Stop();
+            musicSource.mute = false;
         }
+        //if (!MuteMusic && !musicSource.isPlaying)
+        //{
+        //    musicSource.Play();
+        //}
+        //else if (MuteMusic)
+        //{
+        //    musicSource.Stop();
+        //    musicSource.mute = true;
+        //}
     }
 
     public void playHelicopterSound() { playSound(helicopterSound); }
@@ -61,6 +71,11 @@ public class SoundManager : MonoBehaviour
 
     private void playSound(AudioClip audioClip)
     {
+        if (MuteSounds)
+        {
+            return;
+        }
+
         float audioClipLength = audioClip.length;
 
         GameObject soundNode = Instantiate(soundNodePrefab);
@@ -71,5 +86,15 @@ public class SoundManager : MonoBehaviour
         audioSource.Play();
 
         Destroy(soundNode, audioClipLength);
+    }
+
+    public void muteMusic(bool vBool)
+    {
+        MuteMusic = vBool;
+    }
+
+    public void muteSounds(bool vBool)
+    {
+        MuteSounds = vBool;
     }
 }
