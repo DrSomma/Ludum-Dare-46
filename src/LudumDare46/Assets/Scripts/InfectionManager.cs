@@ -32,6 +32,7 @@ public class InfectionManager : MonoBehaviour
 
     private void Start() {
         infectedHumans = new List<HumanProperties>();
+        Time.timeScale = 1f;
     }
 
     public void setAllHumans(List<HumanProperties> all){

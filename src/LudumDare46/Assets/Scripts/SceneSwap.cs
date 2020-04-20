@@ -29,6 +29,8 @@ public class SceneSwap : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
+        Time.timeScale = 1f;
+
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
