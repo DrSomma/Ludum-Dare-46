@@ -198,8 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0932c11843e96984fbd7eb6bda104a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSpeed: 0.4
-  attractSpeed: 1
+  normalSpeed: 0.3
+  attractSpeed: 0.7
   lockFreeWillTime: 5
   RandomDirectionCycleTime: 2
   RandomDirectionCyclePercentage: 10
@@ -220,9 +220,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActiv: 0
   range: 0.5
-  percentSpread: 0.3
+  percentSpread: 0.5
   infectionCycle: 2
-  coughCycle: 10
+  coughCycle: 5
   percentCough: 0.3
   cloud: {fileID: 5215284320808061867, guid: d9c912847a560964e933a1df14fe5bca, type: 3}
 --- !u!50 &5971346639780146027

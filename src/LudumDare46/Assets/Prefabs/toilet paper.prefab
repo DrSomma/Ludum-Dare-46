@@ -150,7 +150,7 @@ MonoBehaviour:
   interactHealthy: 1
   interactInfected: 1
   attractCycle: 2
-  range: 2
+  range: 4
 --- !u!114 &6214768447793548717
 MonoBehaviour:
   m_ObjectHideFlags: 0

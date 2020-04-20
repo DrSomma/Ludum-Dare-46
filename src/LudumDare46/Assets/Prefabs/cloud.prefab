@@ -119,7 +119,7 @@ MonoBehaviour:
   isActiv: 1
   range: 0.32
   percentSpread: 0.8
-  infectionCycle: 2
+  infectionCycle: 1
   coughCycle: 0
   percentCough: 0
   cloud: {fileID: 0}
