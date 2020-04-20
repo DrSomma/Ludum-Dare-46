@@ -62,7 +62,7 @@ public class InfectionManager : MonoBehaviour
             isGameOver = true;
             Debug.Log("GAME OVER! " + getInfectedCount() + " " + losingCnt);
 
-            Time.timeScale = 0;
+            Time.timeScale = 0f;
 
             foreach (HumanProperties human in allHumans)
             {

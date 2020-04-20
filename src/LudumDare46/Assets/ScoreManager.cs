@@ -30,12 +30,12 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timePassed = Time.deltaTime;
+        timePassed += Time.deltaTime;
     }
 
-    public float getScore()
+    public int getScore()
     {
-        return timePassed;
+        return (int) timePassed*100;
     }
 
 }

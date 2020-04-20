@@ -17,11 +17,11 @@ public class GameOverMenu : MonoBehaviour
 
     public void ShowMenu()
     {
-        score.text = string.Format(score.text, ScoreManager.Instance.getScore());
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(true);
         }
+        score.text = string.Format(score.text, ScoreManager.Instance.getScore());
     }
 
     public void Restart()
