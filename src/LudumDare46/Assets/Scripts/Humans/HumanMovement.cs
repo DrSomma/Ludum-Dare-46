@@ -21,6 +21,7 @@ public class HumanMovement : MonoBehaviour
     public static HumanProperties SelectedCharacter;
     public bool currentlySelected; // Bin ich selektiert?
     private bool inMovement; // Bin ich gerade in einer Bewegeung? - Maus wurde geklickt
+    private bool soundPlayed;
 
     private GameObject attractTarget;
     private Vector2 attractPos;
@@ -57,6 +58,12 @@ public class HumanMovement : MonoBehaviour
     {
         if (hasFreeWill && attractTarget != null)
         {
+            if(!soundPlayed)
+            {
+                SoundManager.instance.playYippieSound();
+                soundPlayed = true;
+            }
+
             transform.position = Vector2.MoveTowards(transform.position, attractPos, Time.deltaTime * speed);
             if(Vector2.Distance(transform.position, attractPos) <= 0.2f)
             {
@@ -69,6 +76,7 @@ public class HumanMovement : MonoBehaviour
         }
         else
         {
+            soundPlayed = false;
             transform.Translate(dir * speed * Time.deltaTime);
         }
 

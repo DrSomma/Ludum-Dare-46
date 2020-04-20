@@ -87,6 +87,8 @@ public class VehicleMovement : MonoBehaviour
         //WIP TODO: ITEM etc quick fix
         HumanMagnet magnet = dropObj.GetComponent<HumanMagnet>();
         magnet.enabled = true;
+
+        SoundManager.instance.playDropSound();
     }
 
     void OnDrawGizmosSelected()

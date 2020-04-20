@@ -26,6 +26,8 @@ public class VehicleSpawner : MonoBehaviour
         obj.transform.position = startPos;
         VehicleMovement vehMov = obj.GetComponent<VehicleMovement>();
         vehMov.SetTarget(endPos);
+
+        SoundManager.instance.playHelicopterSound();
     }
 
     private int RandomInt(int start, int end)

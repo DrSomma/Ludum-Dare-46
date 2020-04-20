@@ -7,7 +7,10 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
 
     public GameObject soundNodePrefab;
-    public AudioClip testAudio;
+    public AudioClip helicopterSound;
+    public AudioClip coughSound;
+    public AudioClip dropSound;
+    public AudioClip yippieSound;
 
     [Header("For Background Music")]
     public bool SoundEnabled;
@@ -50,7 +53,11 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void playTestAudio() { playSound(testAudio); }
+    public void playHelicopterSound() { playSound(helicopterSound); }
+    public void playCoughSound() { playSound(coughSound); }
+    public void playDropSound() { playSound(dropSound); }
+    public void playYippieSound() { playSound(yippieSound); }
+
 
     private void playSound(AudioClip audioClip)
     {
