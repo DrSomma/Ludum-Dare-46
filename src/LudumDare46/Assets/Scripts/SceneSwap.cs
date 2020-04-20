@@ -22,14 +22,6 @@ public class SceneSwap : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            TransitionToLevel(1);
-        }  
-    }
-
     public void TransitionToLevel(int levelIndex)
     {
         StartCoroutine(LoadLevel(levelIndex));
