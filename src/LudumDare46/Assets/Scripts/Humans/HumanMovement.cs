@@ -69,6 +69,7 @@ public class HumanMovement : MonoBehaviour
         }
         else
         {
+            SetSpeed(normalSpeed);
             transform.Translate(dir * speed * Time.deltaTime);
         }
 
