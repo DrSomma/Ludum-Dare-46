@@ -90,7 +90,7 @@ public class HumanMovement : MonoBehaviour
 
     public void setTarget(Transform target)
     {
-        if(attractTarget == null)
+        if(attractTarget == null && hasFreeWill)
             attractTarget = target;
     }
 
