@@ -22,14 +22,15 @@ public class HumanMovement : MonoBehaviour
     public bool currentlySelected; // Bin ich selektiert?
     private bool inMovement; // Bin ich gerade in einer Bewegeung? - Maus wurde geklickt
 
-    private Transform attractTarget;
+    private GameObject attractTarget;
+    private Vector2 attractPos;
     private bool hasFreeWill = true;
     private float elapsedTime;
     private float speed;
 
     void Start()
     {
-        speed = normalSpeed;
+        SetSpeed(normalSpeed);
 
         //Calc init move dir
         calcDir(Random.Range(0, 360));
@@ -47,17 +48,22 @@ public class HumanMovement : MonoBehaviour
         dir = (Vector2)(Quaternion.Euler(0, 0, angle) * Vector2.up);
     }
 
+    public void SetSpeed(float s)
+    {
+        speed = s;
+    }
+
     void Update()
     {
         if (hasFreeWill && attractTarget != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, attractTarget.position, Time.deltaTime * attractSpeed);
-            if(Vector2.Distance(transform.position, attractTarget.position) <= 0.2f)
+            transform.position = Vector2.MoveTowards(transform.position, attractPos, Time.deltaTime * speed);
+            if(Vector2.Distance(transform.position, attractPos) <= 0.2f)
             {
                 if(attractTarget.gameObject.tag == "Collectible")
                 {
-                    Collectible col = attractTarget.gameObject.GetComponent<Collectible>();
-                    col.doPickUp();
+                    Collectible col = attractTarget.GetComponent<Collectible>();
+                    col.doPickUp(gameObject);
                 }
             }
         }
@@ -99,7 +105,12 @@ public class HumanMovement : MonoBehaviour
     public void setTarget(Transform target)
     {
         if(attractTarget == null && hasFreeWill)
-            attractTarget = target;
+        {
+            attractPos = target.position;
+            attractTarget = target.gameObject;
+            SetSpeed(attractSpeed);
+        }
+            
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -162,6 +173,7 @@ public class HumanMovement : MonoBehaviour
                 elapsedTime = 0f;
                 hasFreeWill = false;
                 attractTarget = null;
+                attractPos = Vector2.zero;
 
                 DirectionArrow.SetActive(false);
                 OnMouseExit();

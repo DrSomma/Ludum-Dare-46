@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Collectible : MonoBehaviour
 {
-    public abstract void doPickUp();
+    public abstract void doPickUp(GameObject me);
 }
