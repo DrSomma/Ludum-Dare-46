@@ -12,9 +12,29 @@ public class PauseMenu : MonoBehaviour
     public Sprite IconSoundIsMuted;
     public Sprite IconSoundIsNotMuted;
 
+    public Image btnMusic;
+    public Image btnSound;
+
     void Start()
     {
         ShowMenu(false);
+        if (!SoundManager.instance.MuteMusic)
+        {
+            btnMusic.sprite = IconMusicIsNotMuted;
+        }
+        else
+        {
+            btnMusic.sprite = IconMusicIsMuted;
+        }
+
+        if (!SoundManager.instance.MuteSounds)
+        {
+            btnSound.sprite = IconSoundIsNotMuted;
+        }
+        else
+        {
+            btnSound.sprite = IconSoundIsMuted;
+        }
     }
 
     void Update()
@@ -68,10 +88,30 @@ public class PauseMenu : MonoBehaviour
     public void UIMuteMusic()
     {
         Debug.Log("UIMuteMusic");
+        bool audioStatus = !SoundManager.instance.MuteMusic;
+        SoundManager.instance.muteMusic(audioStatus);
+        if (!audioStatus)
+        {
+            btnMusic.sprite = IconMusicIsNotMuted;
+        }
+        else
+        {
+            btnMusic.sprite = IconMusicIsMuted;
+        }
     }
 
     public void UIMuteSound()
     {
         Debug.Log("UIMuteSound");
+        bool audioStatus = !SoundManager.instance.MuteSounds;
+        SoundManager.instance.muteSounds(audioStatus);
+        if (!audioStatus)
+        {
+            btnSound.sprite = IconSoundIsNotMuted;
+        }
+        else
+        {
+            btnSound.sprite = IconSoundIsMuted;
+        }
     }
 }

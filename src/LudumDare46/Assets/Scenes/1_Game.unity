@@ -771,7 +771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &164827549
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1779,7 +1779,7 @@ GameObject:
   - component: {fileID: 409778968}
   - component: {fileID: 409778967}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: btnMuteMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1846,7 +1846,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 409778968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1147210756}
+        m_MethodName: UIMuteMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &409778968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2782,7 +2793,7 @@ GameObject:
   - component: {fileID: 606917673}
   - component: {fileID: 606917672}
   m_Layer: 5
-  m_Name: Button
+  m_Name: btnMuteSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2849,7 +2860,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 606917673}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1147210756}
+        m_MethodName: UIMuteSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &606917673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7229,6 +7251,8 @@ MonoBehaviour:
     type: 3}
   IconSoundIsNotMuted: {fileID: 7937809628640782075, guid: 06134bbde9e1e3a41a2a34a39cb5ddbb,
     type: 3}
+  btnMusic: {fileID: 409778968}
+  btnSound: {fileID: 606917673}
 --- !u!1 &1159878156
 GameObject:
   m_ObjectHideFlags: 0
@@ -8050,8 +8074,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279304365
-  m_fontColor: {r: 0.6792453, g: 0, b: 0.06573335, a: 1}
+    rgba: 4285376587
+  m_fontColor: {r: 0.29411766, g: 0.65882355, b: 0.427451, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8223,7 +8247,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1147210756}
         m_MethodName: CloseGame
         m_Mode: 1
         m_Arguments:
@@ -20390,6 +20414,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1059383834456878015, guid: a740fcff0d82d4e4eb68c4091e029198,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 49
+      objectReference: {fileID: 0}
     - target: {fileID: 1059383835833178524, guid: a740fcff0d82d4e4eb68c4091e029198,
         type: 3}
       propertyPath: m_Name
@@ -20398,7 +20427,7 @@ PrefabInstance:
     - target: {fileID: 1059383835833178524, guid: a740fcff0d82d4e4eb68c4091e029198,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1059383835833178525, guid: a740fcff0d82d4e4eb68c4091e029198,
         type: 3}
@@ -20635,7 +20664,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1147210756}
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -21409,7 +21438,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1147210756}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
