@@ -6,9 +6,6 @@ public class InfectionManager : MonoBehaviour
 {
     public static InfectionManager Instance;
 
-    public GameObject gravePrefab;
-    public GameObject linePrefab;
-
     private void Awake()
     {
         if(Instance == null)
@@ -21,11 +18,15 @@ public class InfectionManager : MonoBehaviour
         }
     }
 
+    public GameObject gravePrefab;
+    public GameObject linePrefab;
+    [Range(0.0f, 1f)]
     public float losingPercent = 0.5f;
-
     public List<HumanProperties> infectedHumans;
     public List<HumanProperties> allHumans;
     public bool isGameOver = false;
+    [Header("UI")]
+    public GameOverMenu gameOverMenu;
 
     private int losingCnt = 999999;
 
@@ -78,6 +79,9 @@ public class InfectionManager : MonoBehaviour
                 GameObject grave = Instantiate(gravePrefab);
                 gravePrefab.transform.position = pos;
             }
+
+            //Show GUI
+            gameOverMenu.ShowMenu();
         }
     }
 
