@@ -24,6 +24,7 @@ public class HumanMovement : MonoBehaviour
 
     private Transform attractTarget;
     private bool hasFreeWill = true;
+    private float elapsedTime;
     private float speed;
 
     void Start()
@@ -69,6 +70,15 @@ public class HumanMovement : MonoBehaviour
             Transform directionArrowTransform = DirectionArrow.GetComponent<Transform>();
             directionArrowTransform.rotation = Quaternion.Euler(0, 0, AngleBetweenVector2(dragEnd, dragStart));
         }
+
+        if (!hasFreeWill)
+        {
+            elapsedTime += Time.deltaTime;
+            if(elapsedTime >= lockFreeWillTime)
+            {
+                hasFreeWill = true;
+            }
+        }
     }
 
     private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)
@@ -80,7 +90,8 @@ public class HumanMovement : MonoBehaviour
 
     public void setTarget(Transform target)
     {
-        attractTarget = target;
+        if(attractTarget == null)
+            attractTarget = target;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -139,10 +150,13 @@ public class HumanMovement : MonoBehaviour
                 dir = dir.normalized;// * speed;
 
                 inMovement = false;
+
+                elapsedTime = 0f;
+                hasFreeWill = false;
+                attractTarget = null;
+
                 DirectionArrow.SetActive(false);
                 OnMouseExit();
-
-                StartCoroutine("LockFreeWill");
             }
         }
         else if (currentlySelected && myProbs.status == HealthStatusEnum.infected)
@@ -160,13 +174,6 @@ public class HumanMovement : MonoBehaviour
         {
             OnMouseUp();
         }
-    }
-
-    IEnumerable LockFreeWill()
-    {
-        hasFreeWill = false;
-        yield return new WaitForSeconds(lockFreeWillTime);
-        hasFreeWill = true;
     }
 
     private void NewRandomDirection()

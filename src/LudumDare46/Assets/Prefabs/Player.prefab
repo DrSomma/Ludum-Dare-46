@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4553530690125696627}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,12 +199,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSpeed: 0.5
   attractSpeed: 1
-  lockFreeWillTime: 2
-  RandomDirectionCycleTime: 1
+  lockFreeWillTime: 5
+  RandomDirectionCycleTime: 2
   RandomDirectionCyclePercentage: 10
   Highlighter: {fileID: 6736490332718791582}
   DirectionArrow: {fileID: 247555569555507290}
   currentlySelected: 0
+  attractTarget: {fileID: 0}
+  hasFreeWill: 1
+  elapsedTime: 0
 --- !u!114 &7599638684406032717
 MonoBehaviour:
   m_ObjectHideFlags: 0
