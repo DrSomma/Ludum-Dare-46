@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     public bool MuteSounds;
     public AudioSource musicSource;
     public AudioClip musicStart;
+    public AudioClip musicLoop;
 
     void Awake()
     {
@@ -30,15 +31,16 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        musicSource.clip = musicStart;
+        musicSource.PlayOneShot(musicStart);
+        
+        musicSource.clip = musicLoop;
+        musicSource.PlayScheduled(AudioSettings.dspTime + musicStart.length);
         musicSource.loop = true;
 
-        if (!MuteMusic)
-        {
-            musicSource.Play();
-        }
-        //musicSource.PlayOneShot(musicStart);
-        //musicSource.PlayScheduled(AudioSettings.dspTime + musicStart.length);
+        //if (!MuteMusic)
+        //{
+        //    musicSource.Play();
+        //}
         //musicSource.loop = true;
     }
 
