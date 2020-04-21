@@ -856,7 +856,7 @@ MonoBehaviour:
     type: 3}
   linePrefab: {fileID: 4876159626426715151, guid: 9d319831f657b0949bff2204af735903,
     type: 3}
-  losingPercent: 0.8
+  losingPercent: 0.7
   infectedHumans: []
   allHumans: []
   isGameOver: 0
@@ -19447,6 +19447,16 @@ PrefabInstance:
       propertyPath: yippieSound
       value: 
       objectReference: {fileID: 8300000, guid: e87e47e7a15ff2341862888e02e50a01, type: 3}
+    - target: {fileID: 3153814465867444138, guid: 85566df7beeee2244b880b1c1c930a4f,
+        type: 3}
+      propertyPath: musicStart
+      value: 
+      objectReference: {fileID: 8300000, guid: 6295a38b3fbe3e74caf397bd8022bb98, type: 3}
+    - target: {fileID: 3153814465867444138, guid: 85566df7beeee2244b880b1c1c930a4f,
+        type: 3}
+      propertyPath: musicLoop
+      value: 
+      objectReference: {fileID: 8300000, guid: 6aa9ee5c37b21dd4cbde6ed24048f9d1, type: 3}
     - target: {fileID: 3153814465867444139, guid: 85566df7beeee2244b880b1c1c930a4f,
         type: 3}
       propertyPath: m_Name
