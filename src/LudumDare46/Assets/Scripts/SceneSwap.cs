@@ -24,6 +24,7 @@ public class SceneSwap : MonoBehaviour
 
     public void TransitionToLevel(int levelIndex)
     {
+        Debug.Log("Load Level: " + levelIndex);
         StartCoroutine(LoadLevel(levelIndex));
     }
 
