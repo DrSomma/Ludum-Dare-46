@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public List<GameObject> humans;
-    public float startInfected = 0.03f;
+    public int startInfected = 2;
     public int count = 100;
     public List<SpawnPoint> spawnPoints;
 
@@ -26,8 +26,12 @@ public class Spawn : MonoBehaviour
 
         //failsave - need min 1 infected
         InfectionManager.Instance.setAllHumans(allHumans);
-        if (InfectionManager.Instance.infectedHumans.Count == 0){
-            allHumans[0].Infect();      //infect first in list
+        if (InfectionManager.Instance.infectedHumans.Count <= startInfected)
+        {
+            for (int i = 0; i < startInfected; i++)
+            {
+                allHumans[i].Infect();      //infect
+            }
         }
     }
 
@@ -35,12 +39,7 @@ public class Spawn : MonoBehaviour
         //TODO: macht nicht viel Sinn oder? Sprit muss angepasst werden
         probs.sex = RandomInt(0,1)==0 ? SexEnum.male : SexEnum.female;
         probs.age = Random.Range(5,99);
-
-        if(Random.Range(0f,1f)<=startInfected){
-            probs.Infect();
-        }else{
-            probs.status = HealthStatusEnum.healthy;
-        }
+        probs.status = HealthStatusEnum.healthy;
     }
 
     private int RandomInt(int start, int end){

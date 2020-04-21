@@ -955,7 +955,7 @@ Transform:
   - {fileID: 62198803}
   - {fileID: 1781887040}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455301243
 GameObject:
@@ -2014,6 +2014,11 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1059383834456878015, guid: a740fcff0d82d4e4eb68c4091e029198,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 224
+      objectReference: {fileID: 0}
     - target: {fileID: 1059383835833178524, guid: a740fcff0d82d4e4eb68c4091e029198,
         type: 3}
       propertyPath: m_Name
@@ -2057,7 +2062,7 @@ PrefabInstance:
     - target: {fileID: 1059383835833178525, guid: a740fcff0d82d4e4eb68c4091e029198,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1059383835833178525, guid: a740fcff0d82d4e4eb68c4091e029198,
         type: 3}
@@ -2783,7 +2788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME_TITLE
+  m_text: Do The Social Distancing!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ec8815557227164799379307f0eae3a, type: 2}
   m_sharedMaterial: {fileID: -5409794867120874078, guid: 1ec8815557227164799379307f0eae3a,
@@ -2812,8 +2817,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50.97
+  m_fontSizeBase: 50.97
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2829,7 +2834,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 14
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2853,12 +2858,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 982751824}
-    characterCount: 10
+    characterCount: 25
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 2
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -8385,9 +8390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GAME_TITLE
-
-'
+  m_text: Do The Social Distancing!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ec8815557227164799379307f0eae3a, type: 2}
   m_sharedMaterial: {fileID: -5409794867120874078, guid: 1ec8815557227164799379307f0eae3a,
@@ -8416,8 +8419,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50.97
+  m_fontSizeBase: 50.97
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8433,7 +8436,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 14
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -8457,12 +8460,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1897888892}
-    characterCount: 11
+    characterCount: 25
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -18819,7 +18822,7 @@ RectTransform:
   - {fileID: 1496825598}
   - {fileID: 359094308}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

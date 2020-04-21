@@ -856,7 +856,7 @@ MonoBehaviour:
     type: 3}
   linePrefab: {fileID: 4876159626426715151, guid: 9d319831f657b0949bff2204af735903,
     type: 3}
-  losingPercent: 0.5
+  losingPercent: 0.8
   infectedHumans: []
   allHumans: []
   isGameOver: 0
@@ -21251,8 +21251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humans:
   - {fileID: 4553530690125696628, guid: 3547079cf491c95448e46ac2183687b1, type: 3}
+  - {fileID: 4553530690125696628, guid: 3547079cf491c95448e46ac2183687b1, type: 3}
   - {fileID: 5971346639780146029, guid: 5b727dac419ebbf46a98fe393c6f94d3, type: 3}
-  startInfected: 0
+  startInfected: 2
   count: 50
   spawnPoints:
   - {fileID: 156635586}
